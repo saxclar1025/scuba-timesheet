@@ -12,21 +12,135 @@
 <body>
   <nav class="navbar navbar-default">
   <div class="container-fluid">
+    
     <div class="navbar-header">
       <a class="navbar-brand" href="/logout">
         Logout
       </a>
+      <span class="member-firstame navbar-tex"></span>
+      <span class="member-name navbar-tex"></span></h2>
     </div>
   </div>
 </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Email <span class="member-name"></span></h2>
-        <h2>First name <span class="member-firstame"></span></h2>
-      </div>
+
+<!-- body of website -->
+
+
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Payroll Form</h1>
     </div>
   </div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               Please select your role and services provided
+            </div>
+            <div class="panel-body">
+        <div class="form-group">
+            <label>User Roles</label>
+            <div class="checkbox-inline" id="rolesform">
+                <label>
+                    <input type="checkbox" value="crew">Crew
+                </label>
+            </div>
+            <div class="checkbox-inline">
+                <label>
+                    <input type="checkbox" value="captain">Captain
+                </label>
+            </div>
+            <div class="checkbox-inline">
+                <label>
+                    <input type="checkbox" value="office">Office
+                </label>
+            </div>
+            <div class="checkbox-inline">
+                <label>
+                    <input type="checkbox" value="instructor">Instructor
+                </label>
+            </div>
+            <div class="checkbox-inline">
+                <label>
+                    <input type="checkbox" value="admin">Admin
+                </label>
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label">Hello Captain, Choose your Boat</label>
+              <div class="selectContainer">
+                  <select class="form-control" name="captainTask" id="captainTask">
+                      <option value="captainBlackPearl">Captain Black Pearl</option>
+                      <option value="captainAquaView">Captain Aqua View</option>
+                      <option value="captainSafari">Captain Safari</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">Hello Mate, Select your Crew?</label>
+                  <div class="selectContainer">
+                      <select class="form-control" name="crewTask" id="crewTask">
+                      <option value="crewBlackPearl">Crew Black Pearl</option>
+                      <option value="crewAquaView">Crew Aqua View</option>
+                      <option value="crewSafari">Crew Safari</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-md-8">Did you work on any Tanks?</label>
+                  <div class="selectContainer  col-md-8">
+                      <select class="form-control" name="tanks" id="tanks">
+                      <option value="airTankFill">Air Tank Fill</option>
+                      <option value="nitrox">Nitrox Tank Fill</option>
+                    </select>
+                  </div>
+            
+                  <label class="col-md-4 control-label"></label>
+                  <div class="col-md-4 inputGroupContainer">
+                      <div class="input-group">
+                          <input type="text" class="form-control" name="amount" />
+                          <span class="input-group-addon">How Many</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-md-8"></label>
+                  <div class="selectContainer col-md-8">
+                      <select class="form-control" name="hours" id="hours">
+                      <option value="hours">Hours</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-md-4  control-label"></label>
+                  <div class="col-md-4  inputGroupContainer">
+                      <div class="input-group">
+                          <input type="text" class="form-control" name="amount" />
+                          <span class="input-group-addon">Amount</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-md-8"></label>
+                  <div class="selectContainer col-md-8">
+                      <select class="form-control" name="misc" id="misc">
+                      <option value="miscellaneus">Miscellaneus</option></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class=" col-md-4  control-label"></label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="misc" />
+                            <span class="input-group-addon"></span>
+                        </div>
+                    </div>
+                </div> 
+            </form>   
+        </div>
+    </div>
+</div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
