@@ -1,9 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Group= sequelize.define("Group", {
-
-  	id: {type: DataTypes.INT, primaryKey: true},
     // Giving the Author model a name of type STRING
-    name: DataTypes.STRING
+    "name": DataTypes.STRING
   });
 
   Group.associate = function(models) {

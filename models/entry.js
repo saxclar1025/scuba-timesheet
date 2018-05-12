@@ -1,11 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Entry = sequelize.define("Entry", {
-
-  	id: {type: DataTypes.INT, primaryKey: true},
     // Giving the Author model a name of type STRING
-    Date: DataTypes.DATEONLY,
+    "date": DataTypes.DATEONLY,
 
-    Quantity: DataTypes.INT
+    "quantity": DataTypes.INTEGER
   });
 
 

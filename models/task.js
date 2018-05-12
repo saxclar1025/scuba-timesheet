@@ -1,11 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Task = sequelize.define("Task", {
-
-  	id: {type: DataTypes.INT, primaryKey: true},
     // Giving the Author model a name of type STRING
-    name: DataTypes.STRING,
+    "name": DataTypes.STRING,
 
-    commission: DataTypes.DECIMAL(6,2)
+    "commission": DataTypes.DECIMAL(6,2)
   });
 
   Task.associate = function(models) {
