@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Logger</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/userApiTest.js"></script>
+</head>
+<body>
+    <h4>Create user</h4>
+    <form id="user-form">
+        <label>First Name:</label>
+        <input type="text" id="firstName">
+        <br>
+        <label>Last Name:</label>
+        <input type="text" id="lastName">
+        <br>
+        <label>Username:</label>
+        <input type="text" id="userName">
+        <br>
+        <label>Email:</label>
+        <input type="text" id="email">
+        <br>
+        <label>Password:</label>
+        <input type="text" id="password">
+        <br>
+        <input type="submit" id="user-submit">
+    </form>
+    <br>
+    <button id="getUsersButton">Console log users</button>
+    <br>
+    <form id="getUserById">
+        <label>User ID to get:</label>
+        <input type="text" id="userId">
+        <br>
+        <input type="submit" name="user-id-submit">
+    </form>
+    <br>
+    <form id="username-change">
+        <label>ID to change</label>
+        <input type="text" id="idToChange">
+        <br>
+        <label>New username:</label>        
+        <input type="text" id="newUsername">
+        <br>
+        <input type="submit" id="username-change-submit">
+    </form>
+    <br>
+    <form id="delete-user">
+        <label>Id to delete</label>
+        <input type="text" id="idToDelete">
+        <br>
+        <input type="submit" id="deleteSubmit">
+    </form>
+</body>
+</html>
