@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task tester</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/taskApiTest.js"></script>
+</head>
+<body>
+    <form id="new-task-form">
+        <label>Add Task:</label>
+        <input type="text" id="new-task-name">
+        <br>
+        <input type="submit" id="new-task-submit">
+    </form>
+    <br>
+    <button id="get-task-button">Get tasks</button>
+    <br>
+    <form id="get-task-form">
+        <label>Get task by id:</label>
+        <input type="text" id="get-task-id">
+        <br>
+        <input type="submit" id="get-task-submit">
+    </form>
+    <br>
+    <form id="change-task-form">
+        <label>Change task id:</label>
+        <input type="text" id="change-task-id">
+        <br>
+        <label>New task name:</label>
+        <input type="text" id="change-task-name">
+        <br>
+        <input type="submit" id="change-task-submit">
+    </form>
+    <br>
+    <form id="delete-task-form">
+        <label>Delete task by id:</label>
+        <input type="text" id="delete-task-id">
+        <br>
+        <input type="submit" id="delete-task-submit">
+    </form>
+</body>
+</html>
