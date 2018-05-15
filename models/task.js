@@ -10,8 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
     Task.belongsToMany(models.Group, {through:'GroupTask'});
-    Task.hasMany(models.Entry, {as:'Entries'});
-    
+    Task.hasMany(models.Entry);
   };
 
   return Task;

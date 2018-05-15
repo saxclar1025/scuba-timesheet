@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#new-group-form").submit(event=>{
         event.preventDefault();
-        $.post("/api/group", {
+        $.post("/api/groups", {
             name:$("#new-group-name").val()
         }).done(data=>{
             console.log(data);
@@ -11,14 +11,14 @@ $(document).ready(function(){
 
     $("#get-group-button").click(event=>{
         event.preventDefault();
-        $.get("/api/group", group=>{
+        $.get("/api/groups", group=>{
             console.log(group);
         });
     });
 
     $("#get-group-form").submit(event=>{
         event.preventDefault();
-        $.get("/api/group/" + $("#get-group-id").val(), group=>{
+        $.get("/api/groups/" + $("#get-group-id").val(), group=>{
             console.log(group); 
             $("#get-group-form").trigger("reset");
         });
@@ -26,7 +26,7 @@ $(document).ready(function(){
 
     $("#change-group-form").submit(event=>{
         event.preventDefault();
-        $.ajax("/api/group/", {
+        $.ajax("/api/groups/", {
             method:"PUT",
             data: {
                 id:$("#change-group-id").val(),
@@ -40,7 +40,7 @@ $(document).ready(function(){
 
     $("#delete-group-form").submit(event=>{
         event.preventDefault();
-        $.ajax("/api/group/"+$("#delete-group-id").val(),{
+        $.ajax("/api/groups/"+$("#delete-group-id").val(),{
             method: "DELETE"
         }).done( function(data){
             console.log(data);

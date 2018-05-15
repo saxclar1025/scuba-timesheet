@@ -3,7 +3,8 @@ var db = require("../models");
 module.exports = function(app) {
 
     app.get("/api/roles", function(req,res){
-        db.Role.findAll({}).then(function(roles){
+        db.Role.findAll({})
+        .then(function(roles){
             res.json(roles);
         });
     });
@@ -29,17 +30,36 @@ module.exports = function(app) {
         });
     });
 
-    app.delete("/api/roles/:id",(req,res)=>{
+    app.delete("/api/roles/:id", (req,res)=>{
         db.Role.destroy({where:{id:req.params.id}})
         .then(role=>{
             res.json(role);
         });
     });
 
-    app.get("/api/roles/:userId", function(req,res){
-        db.User.findOne({where:{id:req.params.userId}})
-        .then(function(user){
-            res.json(user.getRoles());
+    //takes an object {roleId, [groupIds]}
+    app.post("/api/roles/assigngroups", (req,res)=>{
+        db.Role.findById(req.body.roleId)
+        .then(role=>{
+            role.addGroups(req.body.groupIds);
+        });
+    });
+
+    //takes an object {roleId, [groupIds]}
+    app.post("/api/roles/deletegroups", (req,res)=>{
+        db.Role.findById(req.body.roleId)
+        .then(role=>{
+            role.removeGroups(req.body.groupIds);
+        });
+    });
+
+    app.get("/api/roles/:id/groups", (req,res)=>{
+        db.Role.findById(req.params.id)
+        .then(role=>{
+            role.getGroups()
+            .then(groups=>{
+                res.json(groups);
+            });
         });
     });
 }

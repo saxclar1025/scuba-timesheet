@@ -54,42 +54,62 @@ module.exports = function(app) {
     });
 
     app.get("/api/users/:id", function(req,res){
-        db.User.findOne({where:{"id":req.params.id}}).then(function(user_data){
+        db.User.findOne({where:{"id":req.params.id}})
+        .then(function(user_data){
             res.json(user_data);
         });
     });
 
     app.get("/api/users", function(req,res){
-        db.User.findAll({}).then(function(users){
+        db.User.findAll({})
+        .then(function(users){
             res.json(users);
         });
     });
 
     app.post("/api/users", function(req,res){
-        db.User.create(req.body).then(function(user){
+        db.User.create(req.body)
+        .then(function(user){
             res.json(user);
         });
     });
 
     app.put("/api/users", function(req,res){
-        db.User.update(req.body, {where:{id:req.body.id}}).then(function(user){
+        db.User.update(req.body, {where:{id:req.body.id}})
+        .then(function(user){
             res.json(user);
         });
     });
 
-    
-    app.post("/api/users/assignrole", function(req,res){
-        db.User.findOne({where:{id:req.params.userId}}).then(function(user){
-            db.Role.findOne({where:{id:req.params.roleId}}).then(function(role){
-                user.addRole(role).then(function(){
-                    res.json(user);
-                });
+    app.get("/api/users/:id/roles", (req,res)=>{
+        db.User.findById(req.params.id)
+        .then(user=>{
+            user.getRoles()
+            .then(roles=>{
+                res.json(roles);
             });
         });
     });
 
+    //takes an object {userId, [roleIds]}
+    app.post("/api/users/assignroles", function(req,res){
+        db.User.findById(req.body.userId)
+        .then(user=>{
+            user.addRoles(req.body.roleIds);
+        });
+    });
+
+    //takes an object {userId, [roleIds]}
+    app.post("/api/users/deleteroles", function(req,res){
+        db.User.findById(req.body.userId)
+        .then(user=>{
+            user.removeRoles(req.body.roleIds);
+        });
+    });
+
     app.delete("/api/users/:id", function(req,res){
-        db.User.destroy({where:{id:req.params.id}}).then(function(user){
+        db.User.destroy({where:{id:req.params.id}})
+        .then(function(user){
             res.json(user);
         });
     });
