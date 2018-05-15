@@ -22,7 +22,7 @@ $(document).ready(function(){
     };
 
     function loadTaskOptions(callback) {
-        $.get("/api/tasks", tasks=>{
+        $.get("/api/groups/" + $("#new-entry-group").val() + "/tasks", tasks=>{
             $("#new-entry-task").empty();
             tasks.forEach(task=>{
                 $("<option value='" + task.id + "'>" + task.name + "</option>")
