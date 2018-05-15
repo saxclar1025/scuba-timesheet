@@ -57,6 +57,6 @@ module.exports = function(app) {
     });
 
     app.get("/entries", (req,res)=>{
-        res.sendFile(path.join(__dirname, "..public/entryAPITest.html"));
+        res.sendFile(path.join(__dirname, "../public/entryAPITest.html"));
     });
 };

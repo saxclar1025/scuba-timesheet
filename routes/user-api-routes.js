@@ -91,6 +91,27 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/api/users/:id/groups", (req,res)=>{
+        db.User.findById(req.params.id)
+        .then(user=>{
+            user.getRoles()
+            .then(roles=>{
+                var userGroups = [];
+                roles.forEach(role=>{
+                    role.getGroups()
+                    .then(groups=>{
+                        groups.forEach(group=>{
+                            if(userGroups.indexOf(group) === -1) {
+                                userGroups.push(group);
+                            }
+                        });
+                        res.json(userGroups);
+                    });
+                });
+            });
+        });
+    });
+
     //takes an object {userId, [roleIds]}
     app.post("/api/users/assignroles", function(req,res){
         db.User.findById(req.body.userId)
