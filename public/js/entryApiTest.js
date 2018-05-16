@@ -11,11 +11,19 @@ $(document).ready(function(){
     };
 
     function loadGroupOptions(callback) {
-        $.get("/api/users/" + $("#new-entry-user").val() + "/groups", groups=>{
+        $.get("/api/users/" + $("#new-entry-user").val() + "/roles", roles=>{
             $("#new-entry-group").empty();
-            groups.forEach(group=>{
-                $("<option value='" + group.id + "'>" + group.name + "</option>")
-                    .appendTo($("#new-entry-group"));
+            var userGroupIds = [];
+            roles.forEach(role=>{
+                $.get("/api/roles/"+role.id+"/groups", groups=>{
+                    groups.forEach(group=>{
+                        if(userGroupIds.indexOf(group.id) === -1){
+                            userGroupIds.push(group.id);
+                            $("<option value='" + group.id + "'>" + group.name + "</option>")
+                            .appendTo($("#new-entry-group"));
+                        }
+                    });
+                });
             });
             if(!!callback) callback();
         });
