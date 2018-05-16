@@ -11,14 +11,16 @@ $(document).ready(function() {
                 roles.forEach(role=>{
                     console.log(role.name);
                     $.get("/api/roles/"+role.id+"/groups")
-                    .then(group=>{
-                        //handle each group here
-                        console.log(group.name);
-                        $.get("/api/groups/"+group.id+"/tasks")
-                        .then(tasks=>{
-                            tasks.forEach(task=>{
-                                //handle each task here
-                                console.log(task.name);
+                    .then(groups=>{
+                        groups.forEach(group=>{
+                            //handle each group here
+                            console.log(group.name);
+                            $.get("/api/groups/"+group.id+"/tasks")
+                            .then(tasks=>{
+                                tasks.forEach(task=>{
+                                    //handle each task here
+                                    console.log(task.name);
+                                });
                             });
                         });
                     });
