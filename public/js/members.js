@@ -45,11 +45,11 @@ $(document).ready(function() {
                                 return;
                             }
                             groupsCovered.push(group.id);
-                            var $newGroupBody = $("<tbody id='group" + group.id + "Body'>");
+                            var $newGroupBody = $("<tbody class='collapse' aria-expanded='false' id='group" + group.id + "Body'>");
                             $("<table>")
                                 .addClass("mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp")
                                 .append(
-                                    $("<thead><tr><th><a data-toggle='collapse' href='#group" + group.id + "Body'>"+group.name+"</th></tr></thead>")
+                                    $("<thead><tr><th><a data-toggle='collapse' class='collapsed' href='#group" + group.id + "Body'>"+group.name+"</th></tr></thead>")
                                 )
                                 .append($newGroupBody)
                                 .appendTo($("#survey-container"));
