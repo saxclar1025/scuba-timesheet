@@ -56,6 +56,7 @@ $(document).ready(function(){
 
     $("#new-entry-form").submit(event=>{
         event.preventDefault();
+        console.log($("#new-entry-date").val());
         var newEntry = {
             date: $("#new-entry-date").val(),
             quantity: parseInt($("#new-entry-quantity").val()),

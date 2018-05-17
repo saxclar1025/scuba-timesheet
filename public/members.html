@@ -54,6 +54,7 @@
         <link href="https://surveyjs.azureedge.net/1.0.21/survey.css" type="text/css" rel="stylesheet"/>
         <script src="https://surveyjs.azureedge.net/1.0.21/survey.jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="styles.css">
         
@@ -132,7 +133,10 @@
 
                     <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
                         <div id="survey-container">
-                            
+                            <button id="prev-date-button">&lt;--</button>
+                            <input type="date" id="date-select">
+                            <button id="next-date-button">--&gt;</button>
+                            <br>
                         </div>
                     </div>
                     <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
