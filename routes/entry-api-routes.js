@@ -30,9 +30,9 @@ module.exports = function(app) {
     });
 
     app.get("/api/entries/user/:userid/date/:date/task/:taskid", (req,res)=>{
-        db.Entry.findAll({where:{date:req.params.date,UserId:req.params.userid,TaskId:req.params.taskid}})
-        .then(entries=>{
-            res.json(entries);
+        db.Entry.findOne({where:{date:req.params.date,UserId:req.params.userid,TaskId:req.params.taskid}})
+        .then(entry=>{
+            res.json(entry);
         });
     });
 

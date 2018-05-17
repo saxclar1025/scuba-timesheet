@@ -45,11 +45,11 @@ $(document).ready(function() {
                                 return;
                             }
                             groupsCovered.push(group.id);
-                            var $newGroupBody = $("<tbody class='collapse' aria-expanded='false' id='group" + group.id + "Body'>");
-                            $("<table>")
+                            var $newGroupBody = $("<div class='collapse' aria-expanded='false' id='group" + group.id + "Body'>");
+                            $("<div class='group-container container-fluid'>")
                                 .addClass("mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp")
                                 .append(
-                                    $("<thead><tr><th><a data-toggle='collapse' class='collapsed' href='#group" + group.id + "Body'>"+group.name+"</th></tr></thead>")
+                                    $("<a data-toggle='collapse' class='collapsed' href='#group" + group.id + "Body'>"+group.name+"</a>")
                                 )
                                 .append($newGroupBody)
                                 .appendTo($("#survey-container"));
@@ -58,11 +58,11 @@ $(document).ready(function() {
                                 tasks.forEach(task=>{
                                     //handle each task here
                                     taskIds.push(task.id);
-                                    var $newTask = $("<tr>");
-                                    $newTask.append($("<td>"+task.name+"</td>"))
-                                        .append($("<td>$"+task.commission+"</td>"))
-                                        .append($("<td>")
-                                            .append($("<input type='number' value='0' min='0' step = '1' id='task"+ task.id + "qty'>"))
+                                    var $newTask = $("<div class='row'>");
+                                    $newTask.append($("<span class='col-xs-4'>"+task.name+"</span>"))
+                                        .append($("<span class='col-xs-3'>$"+task.commission+"</span>"))
+                                        .append($("<span class='col-xs-5'>")
+                                            .append($("<input class='col-xs-8' type='number' value='0' min='0' step = '1' id='task"+ task.id + "qty'>"))
                                             .on("change", event=>{
                                                 //update entry for that event
                                                 $.post("/api/entries", {
@@ -72,16 +72,12 @@ $(document).ready(function() {
                                                     TaskId:task.id
                                                 });
                                             })
-                                        )
-                                        .append($("<td>")
-                                            .append($("<button>+</button>").click(event=>{
+                                            .append($("<button class='btn btn-xs col-xs-2'>+</button>").click(event=>{
                                                 $("#task"+task.id+"qty").val(parseInt($("#task"+task.id+"qty").val())+1);
                                                 $("#task"+task.id+"qty").trigger("change");
                                                 })
                                             )
-                                        )
-                                        .append($("<td>")
-                                            .append($("<button>-</button>").click(event=>{
+                                            .append($("<button class='btn btn-xs col-xs-2'>-</button>").click(event=>{
                                                 if($("#task"+task.id+"qty").val()<1) return;
                                                 $("#task"+task.id+"qty").val(parseInt($("#task"+task.id+"qty").val())-1);
                                                 $("#task"+task.id+"qty").trigger("change");
