@@ -21,7 +21,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Invoice App.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Invoice App</title>
+    <title>Task Logger</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -53,6 +53,7 @@
         <script src="https://surveyjs.azureedge.net/1.0.21/survey.jquery.js"></script>
         <link href="https://surveyjs.azureedge.net/1.0.21/survey.css" type="text/css" rel="stylesheet"/>
         <script src="https://surveyjs.azureedge.net/1.0.21/survey.jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="styles.css">
     
@@ -98,6 +99,7 @@
           <img src="images/user.jpg" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span id="username">User Name</span>
+            <a class="btn btn-danger" href="/api/logout">Logout</a>
             <div class="mdl-layout-spacer"></div>
             <!-- <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
               <i class="material-icons" role="presentation">arrow_drop_down</i>
@@ -123,8 +125,8 @@
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
 
             <!-- THIS IS THE DIV FOR THE TABLE  -->
-         <div id="tabledatabase">
-            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+            <div id="tabledatabase">
+              <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                 <thead>
                   <tr>
                     <th class="mdl-data-table__cell--non-numeric">Tasks</th>
@@ -152,7 +154,7 @@
                 </tbody>
               </table>
               <button class="mdl-button mdl-js-button mdl-button--raised">Generate</button>
-         </div>
+            </div>
           </div>
           <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
             <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
