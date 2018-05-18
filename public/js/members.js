@@ -72,12 +72,12 @@ $(document).ready(function() {
                                                     TaskId:task.id
                                                 });
                                             })
-                                            .append($("<button class='btn btn-xs col-xs-2'>+</button>").click(event=>{
+                                            .append($("<button class='btn btn-success btn-xs col-xs-2'>+</button>").click(event=>{
                                                 $("#task"+task.id+"qty").val(parseInt($("#task"+task.id+"qty").val())+1);
                                                 $("#task"+task.id+"qty").trigger("change");
                                                 })
                                             )
-                                            .append($("<button class='btn btn-xs col-xs-2'>-</button>").click(event=>{
+                                            .append($("<button class='btn btn-success btn-xs col-xs-2'>-</button>").click(event=>{
                                                 if($("#task"+task.id+"qty").val()<1) return;
                                                 $("#task"+task.id+"qty").val(parseInt($("#task"+task.id+"qty").val())-1);
                                                 $("#task"+task.id+"qty").trigger("change");
