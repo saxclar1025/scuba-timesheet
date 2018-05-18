@@ -17,6 +17,59 @@
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif !important;
 }
+.mdl-data-table{
+  font-family: 'Roboto' !important;
+  font-size: 13px;
+  color:gray;
+}
+.button, input {
+  color: #4db6ac !important;
+}
+/* from 29 to 70 table responsive css */
+@media only screen and (max-width: 480px) {
+
+  table, thead, tbody, th, td, tr {
+      display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  .mdl-data-table tbody tr {
+    height: auto;
+  }
+  
+  .mdl-data-table tbody tr:nth-child(even) {
+    background-color: #eee;
+  }
+
+  .mdl-data-table td,
+  .mdl-data-table td:first-of-type {
+    padding-left: 50%;
+  }
+
+  .mdl-data-table td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding: 6px 18px 0;
+    white-space: nowrap;
+    content: attr(data-label);
+    text-align: left;
+    color: rgba(0, 0, 0, 0.541176);
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+  }
+  
+  .mdl-data-table td:last-of-type {
+    padding-right: 18px;
+  }
+}
+
+
 .demo-avatar {
   width: 48px;
   height: 48px;
@@ -213,12 +266,16 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
+.button {
+  color: #4db6ac !important;
+}
 
-.btn-green {
+/*   
   background-color: #1ab394 !important;
   color: #fff !important;
   border-radius: 3px !important ;
 }
+
 .btn-green:focus,
 .btn-green:hover {
   background-color: #18a689;
@@ -229,4 +286,4 @@ _:-ms-input-placeholder, :root .demo-graph {
   border: none;
   text-align: right;
   background-color: #fff;
-}
+} */
