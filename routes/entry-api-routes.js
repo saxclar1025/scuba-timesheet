@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
     app.get("/api/entries", (req,res)=>{
-        db.Entry.findAll({})
+        db.Entry.findAll({order:[date]})
         .then(entries=>{
             res.json(entries);
         });
@@ -37,15 +37,13 @@ module.exports = function(app) {
     });
 
     app.get("/api/entries/user/:userid/daterange/:startdate/:enddate", (req,res)=>{
-        db.Entry.findAll({where:{date:{between: [req.params.startdate,req.params.enddate]},UserId:req.params.userid}})
+        db.Entry.findAll({where:{date:{between: [req.params.startdate,req.params.enddate]},UserId:req.params.userid},order:["date"]})
         .then(entries=>{
             res.json(entries);
         });
     });
 
     app.post("/api/entries", (req,res)=>{
-        console.log("Entry posted");
-        console.log(res.body);
         var searchParams = {
             date:req.body.date,
             UserId:req.body.UserId,

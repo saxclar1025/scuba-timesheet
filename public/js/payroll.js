@@ -34,6 +34,7 @@ $(document).ready(function(){
 
     $("#user-select, #start-date, #end-date").on("change", event=>{
         $("tbody").empty();
+        $("#total").text(0);
         $.get("/api/entries/user/"+$("#user-select").val()+"/daterange/" + $("#start-date").val() + "/" + $("#end-date").val())
         .then(entries=>{
             entries.forEach(entry=>{
@@ -46,6 +47,8 @@ $(document).ready(function(){
                         .append($("<td>").text(entry.quantity))
                         .append($("<td>").text(parseInt(entry.quantity)*parseFloat(task.commission)));
                     $entryRow.appendTo("tbody");
+                    var total = parseFloat($("#total").text())+parseInt(entry.quantity)*parseFloat(task.commission);
+                    $("#total").text(total.toFixed(2));
                 });
             });
         });
