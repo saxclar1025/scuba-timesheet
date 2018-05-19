@@ -17,7 +17,11 @@ module.exports = function(sequelize, DataTypes) {
 
     "userName":{
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true,
+      validate: {
+        isAlphanumeric: true
+      }
     },
     // The email cannot be null, and must be a proper email before creation
     "email": {
@@ -49,6 +53,15 @@ module.exports = function(sequelize, DataTypes) {
   // In this case, before a User is created, we will automatically hash their password
   User.hook("beforeCreate", function(user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    console.log("Hooked before create");
+  });
+
+  User.addHook("beforeUpdate", function(user) {
+    console.log("Hooked after update");
+    if(!!user.password) {
+      user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+      console.log(user);
+    }
   });
   return User;
 };

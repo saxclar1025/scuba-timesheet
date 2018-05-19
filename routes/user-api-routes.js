@@ -2,6 +2,7 @@
 var db = require("../models");
 var passport = require("../config/passport");
 var Strategy = require('passport-local').Strategy;
+var bcrypt = require("bcrypt-nodejs");
 
 passport.use( new Strategy(
   function(username, password, cb) {
@@ -81,6 +82,9 @@ module.exports = function(app) {
     });
 
     app.put("/api/users", function(req,res){
+        if(!!req.body.password) {
+            req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null);
+        }
         db.User.update(req.body, {where:{id:req.body.id}})
         .then(function(user){
             res.json(user);
