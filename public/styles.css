@@ -21,6 +21,7 @@ html, body {
   font-family: 'Roboto' !important;
   font-size: 13px;
   color:gray;
+margin: auto;
 }
 .button, input {
   color: #4db6ac !important;
