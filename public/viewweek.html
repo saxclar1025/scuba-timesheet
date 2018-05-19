@@ -21,7 +21,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Invoice Tracker">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-        <title>Task Logger</title>
+        <title>View Week</title>
 
         <!-- Add to homescreen for Chrome on Android -->
         <meta name="mobile-web-app-capable" content="yes">
@@ -79,7 +79,13 @@
                     <div class="mdl-layout-spacer"></div>
                     
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                        <a class="btn btn-danger" href="/api/logout" style="margin-right: 5px;">Logout</a>
+                        <!-- <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                            <i class="material-icons">search</i>
+                        </label> -->
+                        <!-- <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" id="search">
+                            <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                        </div> -->
                     </div>
                     
                     <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
@@ -96,12 +102,12 @@
             
             <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
                 <header class="demo-drawer-header">
-                    <img class="profile_pic" src="images/user.png" class="demo-avatar">
+                    <img src="images/user.jpg" class="demo-avatar">
                     
                     <div class="demo-avatar-dropdown">
-                        <span class="member-name navbar-text"></span>
+                        <span id="member-name" class="navbar-text"></span>
 
-                        
+                        <a class="btn btn-danger" href="/api/logout">Logout</a>
 
                         <div class="mdl-layout-spacer"></div>
                         <!-- <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -121,7 +127,6 @@
                     <a id="payroll-link" class="mdl-navigation__link" href="payroll.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">attach_money</i>Payroll</a>
                     <a id="admin-link" class="mdl-navigation__link" href="admin.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Admin</a>
                     <div class="mdl-layout-spacer"></div>
-
                     <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
                 </nav>
             </div>
@@ -129,11 +134,31 @@
                 <div class="mdl-grid demo-content">
 
                     <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
-                        <div id="survey-container">
-                            <button id="prev-date-button">&lt;--</button>
-                            <input type="date" id="date-select">
-                            <button id="next-date-button">--&gt;</button>
+                        <div id="pwreset-container" >
+                            <h3>View My Tasks</h3>
+                            <!-- THIS IS THE DIV FOR THE TABLE  -->
+                            <button id="prev-week-button">Previous Week</button>
+                            <input type="date" id="start-date">
+                            <input type="date" id="end-date">
+                            <button id="next-week-button">Next Week</button>
                             <br>
+                            <div id="tabledatabase">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th>Date</th>
+                                    <th>Task</th>
+                                    <th>Commission</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                </tbody>
+                              </table>
+                              <h4>Total: $<span id="total">0.00</span></h4>
+                            </div>
                         </div>
                     </div>
                     <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
@@ -152,7 +177,7 @@
                         <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
                             <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
                                 <h3>View Weather</h3>
-                                <span id="weather">Miami, 76'</span>
+                                <span id="weather">Miami, 98'</span>
                         </div>
                     </div>
                 </div>
@@ -207,6 +232,7 @@
             </svg>
             <a href="" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">View Source</a>
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-        <script type="text/javascript" src="js/members.js"></script>
+        <script type="text/javascript" src="js/viewweek.js"></script>
+        <!-- <script type="text/javascript" src="js/createUser.js"></script> -->
     </body>
 </html>
