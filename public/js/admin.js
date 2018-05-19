@@ -5,6 +5,22 @@ $(document).ready(function(){
         .then(user=>{
             $("#member-name").text(user.firstName + " " + user.lastName);
         });
+
+        $.get("/api/users/"+id+"/roles")
+        .then(roles=>{
+            console.log("Is admin:");
+            console.log(roles.find(role=>(role.name === "Admin")));
+            console.log("Is payroll:");
+            console.log(roles.find(role=>(role.name === "Payroll")));
+            if(!roles.find(role=>(role.name === "Admin"))) {
+                console.log("user is not an admin");
+                $("#admin-link").remove();
+            }
+            if(!roles.find(role=>(role.name === "Payroll"))) {
+                console.log("user is not a payroll");
+                $("#payroll-link").remove();
+            }
+        });
     });
 
     function populateUsers() {

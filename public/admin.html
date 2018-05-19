@@ -79,6 +79,7 @@
                     <div class="mdl-layout-spacer"></div>
                     
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                        <a class="btn btn-danger" href="/api/logout" style="margin-right: 5px;">Logout</a>
                         <!-- <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
                             <i class="material-icons">search</i>
                         </label> -->
@@ -102,12 +103,12 @@
             
             <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
                 <header class="demo-drawer-header">
-                    <img src="images/user.jpg" class="demo-avatar">
+                    <img class="profile_pic" src="images/user.png" class="demo-avatar">
                     
                     <div class="demo-avatar-dropdown">
                         <span id="member-name" class="navbar-text"></span>
 
-                        <a class="btn btn-danger" href="/api/logout">Logout</a>
+                      
 
                         <div class="mdl-layout-spacer"></div>
                         <!-- <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -122,8 +123,10 @@
                 </header>
                 <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
                     <a class="mdl-navigation__link" href="members.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Log Tasks</a>
-                    <a class="mdl-navigation__link" href="payroll.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">attach_money</i>Payroll</a>
-                    <a class="mdl-navigation__link" href="admin.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Admin</a>
+                    <a class="mdl-navigation__link" href="viewweek.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">storage</i>View Week</a>
+                    <a class="mdl-navigation__link" href="pwreset.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">lock_outline</i>Reset Password</a>
+                    <a id="payroll-link" class="mdl-navigation__link" href="payroll.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">attach_money</i>Payroll</a>
+                    <a id="admin-link" class="mdl-navigation__link" href="admin.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Admin</a>
                     <div class="mdl-layout-spacer"></div>
                     <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
                 </nav>

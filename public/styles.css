@@ -278,7 +278,11 @@ _:-ms-input-placeholder, :root .demo-graph {
 .button {
   color: #4db6ac !important;
 }
+.profile_pic{
 
+  margin: auto;
+  size: 50px;
+}
 /*   
   background-color: #1ab394 !important;
   color: #fff !important;
