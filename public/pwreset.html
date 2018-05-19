@@ -21,7 +21,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Invoice Tracker">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-        <title>Admin</title>
+        <title>Reset Password</title>
 
         <!-- Add to homescreen for Chrome on Android -->
         <meta name="mobile-web-app-capable" content="yes">
@@ -134,205 +134,19 @@
                 <div class="mdl-grid demo-content">
 
                     <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
-                        <div id="Admin-container" >
+                        <div id="pwreset-container" >
                             <div class="container" style="width: 560px" > <!-- this just a example -->
-                                <h2>Admin</h2>
+                                <h2>Password Reset</h2>
 
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a data-toggle="tab" href="#create_user">Create User</a></li>
-                                    <li><a data-toggle="tab" href="#Manage_user">Manage User</a></li>
-                                    <li><a data-toggle="tab" href="#Manage_roles">Manage Roles</a></li>
-                                    <li><a data-toggle="tab" href="#Manage_groups">Manage Taskgroups </a></li>
-                                    <li><a data-toggle="tab" href="#Manage_tasks">Manage Tasks </a></li>
-                                </ul>
-
-                                <div class="tab-content">
-                                    <div id="create_user" class="tab-pane fade in active">
-                                      <h3>Create User</h3>
-                                        <form id="create-user">
-                                            <div class="form-group">
-                                                <label for="firstName-input">First Name </label>
-                                                <input type="text" class="form-control" id="firstName-input" placeholder="John">
-
-                                                <label for="lastName-input">Last Name </label>
-                                                <input type="text" class="form-control" id="lastName-input" placeholder="Smith">
-
-                                                <label for="userName-input">Username</label>
-                                                <input type="text" class="form-control" id="userName-input" placeholder="jsmith">
-
-                                                <label for="email-input">Email address</label>
-                                                <input type="email" class="form-control" id="email-input" placeholder="email@domain.com">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="password-input">Password</label>
-                                                <input type="password" class="form-control" id="password-input" placeholder="Password">
-                                            </div>
-                                            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-                                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                                <span class="sr-only">Error:</span> <span class="msg"></span>
-                                            </div>
-                                            <button type="submit" class="btn btn-default">Create User</button>
-                                        </form>
-                                    </div>
-
-                                    <div id="Manage_user" class="tab-pane fade">
-                                        <h3>Manage Users</h3>
-
-                                        <form id="user-change">
-                                            <label>Select User</label>
-                                            <select id="userToChange">
-                                                  
-                                            </select>
-                                            <br>
-
-                                            <label>New first name:</label>        
-                                            <input type="text" id="newFirstName">
-                                            <br>
-
-                                            <label>New last name:</label>        
-                                            <input type="text" id="newLastName">
-                                            <br>
-
-                                            <label>New username:</label>        
-                                            <input type="text" id="newUserName">
-                                            <br>
-
-                                            <label>New email:</label>        
-                                            <input type="text" id="newEmail">
-                                            <br>
-
-                                            <label>New Password:</label>        
-                                            <input type="text" id="newPassword">
-                                            <br>
-
-                                            <input type="submit" id="username-change-submit">
-                                            <br>
-
-                                            <button id="delete-user-button" class="btn-danger">Delete User</button>
-                                        </form>
-                                    </div>
-
-                                    <div id="Manage_roles" class="tab-pane fade">
-                                        <h3>Manage Roles</h3>
-                                        <form id="new-role-form">
-                                            <label>Add role:</label>
-                                            <input type="text" id="new-role-name">
-                                            <br>
-                                            <input type="submit" id="new-role-submit">
-                                        </form>
-                                        <br>
-
-                                        <form id="change-role-form">
-                                            <label>Roles:</label>
-                                            <select id="change-role-id">
-
-                                            </select>
-                                            <br>
-
-                                            <label>New role name:</label>
-                                            <input type="text" id="change-role-name">
-                                            <br>
-
-                                            <input type="submit" id="change-role-submit">
-                                            <button id="delete-role-button" class="btn-danger">Delete Role</button>
-                                        </form>
-                                        <br>
-
-                                        <form id="assign-role-form">
-                                            <h4>Assign/unassign Roles to Users</h4>
-                                            <select id="assign-to-user-select"></select>
-                                            <br>
-                                            <select id="role-assign-select"></select>
-                                            <button id="assign-role-button">Assign Role</button>
-                                            <br>
-                                            <select id="role-unassign-select"></select>
-                                            <button id="unassign-role-button">Unassign Role</button>
-                                        </form>
-                                    </div>
-
-                                    <div id="Manage_groups" class="tab-pane fade">
-                                        <h3>Manage Taskgroups</h3>
-                                        <form id="new-group-form">
-                                            <label>Add Taskgroup:</label>
-                                            <input type="text" id="new-group-name">
-                                            <br>
-                                            <input type="submit" id="new-group-submit">
-                                        </form>
-                                        <br>
-
-                                        <form id="change-group-form">
-                                            <label>Taskgroups:</label>
-                                            <select id="change-group-id">
-
-                                            </select>
-                                            <br>
-
-                                            <label>New Taskgroup name:</label>
-                                            <input type="text" id="change-group-name">
-                                            <br>
-
-                                            <input type="submit" id="change-group-submit">
-                                            <button id="delete-group-button" class="btn-danger">Delete Group</button>
-                                        </form>
-                                        <br>
-
-                                        <form id="assign-group-form">
-                                            <h4>Assign/unassign Taskgroups to Roles</h4>
-                                            <select id="assign-to-role-select"></select>
-                                            <br>
-                                            <select id="group-assign-select"></select>
-                                            <button id="assign-group-button">Assign Taskgroup</button>
-                                            <br>
-                                            <select id="group-unassign-select"></select>
-                                            <button id="unassign-group-button">Unassign Taskgroup</button>
-                                        </form>
-                                    </div>
-
-                                    <div id="Manage_tasks" class="tab-pane fade">
-                                        <h3>Manage Tasks</h3>
-                                        <form id="new-task-form">
-                                            <label>Add Task:</label>
-                                            <input type="text" id="new-task-name">
-                                            <br>
-                                            <label>Commission:</label>
-                                            <input type="text" id="new-task-commission">
-                                            <br>
-                                            <input type="submit" id="new-task-submit">
-                                        </form>
-                                        <br>
-
-                                        <form id="change-task-form">
-                                            <label>Tasks:</label>
-                                            <select id="change-task-id">
-
-                                            </select>
-                                            <br>
-
-                                            <label>New Task name:</label>
-                                            <input type="text" id="change-task-name">
-                                            <br>
-
-                                            <label>New Task commission:</label>
-                                            <input type="text" id="change-task-commission">
-                                            <br>
-
-                                            <input type="submit" id="change-task-submit">
-                                            <button id="delete-task-button" class="btn-danger">Delete Task</button>
-                                        </form>
-                                        <br>
-
-                                        <form id="assign-task-form">
-                                            <h4>Assign/unassign Tasks to Taskgroups</h4>
-                                            <select id="assign-to-group-select"></select>
-                                            <br>
-                                            <select id="task-assign-select"></select>
-                                            <button id="assign-task-button">Assign Task</button>
-                                            <br>
-                                            <select id="task-unassign-select"></select>
-                                            <button id="unassign-task-button">Unassign Task</button>
-                                        </form>
-                                    </div>
-                                </div>
+                                <form id="password-reset-form">
+                                    <label>New password:</label>
+                                    <input type="password" id="new-password">
+                                    <br>
+                                    <label>Confirm new password:</label>
+                                    <input type="password" id="new-password-confirm">
+                                    <br>
+                                    <input type="submit" id="password-submit">
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -407,7 +221,7 @@
             </svg>
             <a href="" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">View Source</a>
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-        <script type="text/javascript" src="js/admin.js"></script>
+        <script type="text/javascript" src="js/pwreset.js"></script>
         <!-- <script type="text/javascript" src="js/createUser.js"></script> -->
     </body>
 </html>
